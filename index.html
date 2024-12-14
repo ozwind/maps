@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- https://www.favicon.cc/ -->
+    <link id="favicon" rel="icon" type="image/x-icon" href="images/world.ico">
+    <link rel="stylesheet" href="maps.css">
+    <script>
+        // Fix Firefox bug where it incorrectly cycles showing .png images, instead of .ico
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            var favicon = document.getElementById('favicon');
+            if (favicon) {
+                favicon.setAttribute('rel', 'nofollow');  // make firefox not recognize attribute
+            }
+        }
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+    <link rel="stylesheet" href="maps.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="data.js"></script>
+    <script src="maps.js"></script>
+    <script>
+        $(function() {
+            init();
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="overlay">
+        <button id="map">&#x2699;</button>
+        <ul id="dropdown" style="display: none;">
+        </ul>
+        <p id="info" style="display: none;"></p>
+        <span id="version">14-Dec-2024 &nbsp; &nbsp;C. Hewitt</span>
+    </div>
+    <canvas id="imageCanvas"></canvas>
+    <div id="mapDialog" title="Map" style="display: none;">
+        <img id="mapImage">
+    </div>
+</body>
+
+</html>
