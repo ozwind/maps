@@ -4,6 +4,7 @@ Author: Cliff Hewitt
 
 11-Dec-2024  Inception
 14-Dec-2024  Initial release with maps Asia, Europe, USA
+16-Dec-2024  Added maps Latin America, Africa.  Arrow keys to select map
 
 */
 
@@ -11,9 +12,9 @@ const CANVAS = "#imageCanvas";
 const DIALOG = "#mapDialog";
 const MAPSTORE = "mapStore";
 const image = new Image();
-const maps = [asia, europe, usa];
-let selMap = maps[0];
+const hoverColor = [0,0,255];
 let hoverMap;
+let selMap = maps[0];
 let $info;
 
 function init() {
@@ -22,9 +23,49 @@ function init() {
     loadImage();
     initMapDialog();
 
-    $(CANVAS).on('click', function() {
+    $(".overlay, #imageCanvas").on('click', function() {
         mapInfo();
     });
+
+    $(document).keydown(function(event) {
+        keybaordHandler(event);
+    });
+}
+
+function keybaordHandler(event) {
+    if (event.key === "ArrowLeft" || event.keyCode === 37) {
+        advanceMap(false);  // back
+    }
+    else if (event.key === "ArrowRight" || event.keyCode === 39) {
+        advanceMap(true);   // forward
+    }
+}
+
+function advanceMap(forward) {  // true=forward, false= back
+    let index = 0;
+
+    for (var i = 0; i < maps.length; i++) {
+        if (selMap.name === maps[i].name) {
+            index = i;
+            break;
+        }
+    }
+
+    if (forward) {
+        index++;
+        if (index >= maps.length) {
+            index = 0;
+        }
+    }
+    else {  // back
+        index--;
+        if (index < 0) {
+            index = maps.length - 1;
+        }
+    }
+
+    highlightEntry(maps[index].name);
+    loadImage();
 }
 
 function initDropdown() {
@@ -56,6 +97,7 @@ function initDropdown() {
     // Remember selected entry and hide dropdown on click
     $dropdown.on("click", ".entry", function () {
         highlightEntry($(this).text());
+        hoverMap = undefined;
         loadImage();
         $dropdown.fadeOut(200);
     });
@@ -74,6 +116,12 @@ function initDropdown() {
 function highlightEntry(entryText) {
     if (!entryText) {
         entryText = maps[0].name;
+        for (var i = 0; i < maps.length; i++) {
+            if (maps[i].default) {
+                entryText = maps[i].name;
+                break;
+            }
+        }
     }
 
     for (var i = 0; i < maps.length; i++) {
@@ -81,6 +129,8 @@ function highlightEntry(entryText) {
             selMap = maps[i];
         }
     }
+
+    document.title = selMap.name;
 
     // Remove highlight from all entries
     $("#dropdown .entry").removeClass("highlight");
@@ -164,20 +214,28 @@ function adjustDialogSize(image) {
 function mapInfo() {
     if (hoverMap) {
         const $mapImage = $("#mapImage");
-        const name = hoverMap.key ? hoverMap.key : hoverMap.name.toLowerCase().replace(/\s+/g, '-');
+        const prefix = 'https://www.freeworldmaps.net/';
+        const name = hoverMap.key ? hoverMap.key : hoverMap.name.toLowerCase().replace(/\s+/g, '');
         let url;
 
         if (hoverMap.url) {
             url = hoverMap.url;
         }
         else if (usa === selMap) {
-            url = 'https://geology.com/cities-map/map-of-' + name + '-cities.gif';
+            url = prefix + 'united-states/' + name + '/' + name + '-map.jpg';
         }
         else if (asia === selMap || hoverMap.asia) {
-             url = 'https://www.freeworldmaps.net/asia/' + name + '/' + name + '-physical-map.jpg';
+             url = prefix + 'asia/' + name + '/' + name + '-physical-map.jpg';
         }
         else if (europe === selMap) {
-            url = 'https://www.freeworldmaps.net/europe/' + name + '/' + name + '.jpg';
+            url = prefix + 'europe/' + name + '/' + name + '.jpg';
+        }
+        else if (latin === selMap) {
+            const loc = hoverMap.ca ? "central" : "south";
+            url = prefix + loc + 'america/' + name + '/' + name + '-physical.jpg';
+        }
+        else if (africa === selMap) {
+            url = prefix + 'africa/' + name + '/' + name + '-physical-map.jpg';
         }
 
         if (url) {
@@ -190,8 +248,17 @@ function mapInfo() {
 
             $mapImage.on("error", function () {
                 $mapImage.off("load error");
+                url = undefined;
                 if (asia === selMap || hoverMap.asia) {
-                    url = 'https://www.freeworldmaps.net/asia/' + name + '/' + name + '-map-physical.jpg';
+                    url = prefix + 'asia/' + name + '/' + name + '-map-physical.jpg';
+                }
+                else if (latin === selMap) {
+                    url = prefix + 'southamerica/' + name + '/' + name + '-map.jpg';
+                }
+                else if (africa === selMap) {
+                    url = prefix + 'africa/' + name + '/' + name + '-map.jpg';
+                }
+                if (url) {
                     $mapImage.attr('src', url);
                     $mapImage.on("load", function () {
                         openDialog(this);
@@ -225,23 +292,20 @@ function loadImage() {
         drawScaledImage();
 
         // Add mousemove event listener
-        $(CANVAS).on('mousemove', function (e) {
+        $(".overlay, #imageCanvas").on('mousemove', function(e) {
             const rect = canvas.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
-            const selColor = [0,0,255];
             const pixelColor = context.getImageData(mouseX, mouseY, 1, 1).data;
+            let seeDropdown = $("#dropdown").is(":visible");
 
-            // Extract RGBA values
-            const [r, g, b, a] = pixelColor;
-
-            // Log the color to the console
-            //console.log(selMap.png + ": " + `RGBA: (${r}, ${g}, ${b}, ${a / 255})`);
-
-            if (!sameColor(selColor, pixelColor) && hoverMap) {
+            if ((seeDropdown || !sameColor(hoverColor, pixelColor)) && hoverMap) {
                 let color = [255, 255, hoverMap.color];
-                changeColor(canvas, context, selColor, color);
+                changeColor(canvas, context, hoverColor, color);
                 $info.hide();
+                if (seeDropdown) {
+                    return;
+                }
                 hoverMap = undefined;
             }
 
@@ -250,9 +314,9 @@ function loadImage() {
                 const map = list[i];
                 const mapColor = [255, 255, map.color];
                 if (sameColor(pixelColor, mapColor)) {
-                    changeColor(canvas, context, pixelColor, selColor);
+                    changeColor(canvas, context, pixelColor, hoverColor);
                     hoverMap = map;
-                    const html = map.name + '<br>' + map.info + "<br>" + map.capital;
+                    const html = map.name + '<br>' + map.info + "<br>&#x2606; " + map.capital;
                     $info.html(html);
                     $info.show();
                     break;
