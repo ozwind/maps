@@ -5,6 +5,7 @@ Author: Cliff Hewitt
 11-Dec-2024  Inception
 14-Dec-2024  Initial release with maps Asia, Europe, USA
 16-Dec-2024  Added maps Latin America, Africa.  Arrow keys to select map
+20-Dec-2024  Canada added
 
 */
 
@@ -236,6 +237,9 @@ function mapInfo() {
         }
         else if (africa === selMap) {
             url = prefix + 'africa/' + name + '/' + name + '-physical-map.jpg';
+        }
+        else if (canada === selMap) {
+            url = prefix + 'northamerica/canada/' + name + '/' + name + '.jpg';
         }
 
         if (url) {

@@ -250,4 +250,20 @@ const africa = {name:'Africa', png:'africa', list:[
     {name:"Eritrea", capital:"Asmara", info:"The Land of the Red Sea", color:50}
 ]};
 
-const maps = [africa, asia, europe, latin, usa];
+const canada = {name:'Canada', png:'canada', list:[
+    {name:"Alberta", capital:"Edmonton", info:"Wild Rose Country", color:1},
+    {name:"British Columbia", capital:"Victoria", info:"Beautiful British Columbia", color:2},
+    {name:"Manitoba", capital:"Winnipeg", info:"Friendly Manitoba", color:3},
+    {name:"New Brunswick", capital:"Fredericton", info:"Picture Province", color:4},
+    {name:"Newfoundland and Labrador", capital:"St. John's", info:"The Rock", color:5},
+    {name:"Nova Scotia", capital:"Halifax", info:"Canada's Ocean Playground", color:6},
+    {name:"Nunavut", capital:"Iqaluit", info:"Our Land, Our Strength", color:7},
+    {name:"Ontario", capital:"Toronto", info:"Yours to Discover", color:8},
+    {name:"Prince Edward Island", capital:"Charlottetown", info:"Garden of the Gulf", color:9},
+    {name:"Quebec", capital:"Quebec City", info:"La Belle Province", color:10},
+    {name:"Saskatchewan", capital:"Regina", info:"Land of the Living Skies", color:11},
+    {name:"Northwest Territories", capital:"Yellowknife", info:"Land of the Midnight Sun", color:12},
+    {name:"Yukon", capital:"Whitehorse", info:"Larger Than Life", color:13}
+]};
+
+const maps = [africa, asia, canada, europe, latin, usa];
