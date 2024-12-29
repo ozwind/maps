@@ -216,7 +216,7 @@ function mapInfo() {
     if (hoverMap) {
         const $mapImage = $("#mapImage");
         const prefix = 'https://www.freeworldmaps.net/';
-        const name = hoverMap.key ? hoverMap.key : hoverMap.name.toLowerCase().replace(/\s+/g, '');
+        let name = hoverMap.key ? hoverMap.key : hoverMap.name.toLowerCase().replace(/\s+/g, '');
         let url;
 
         if (hoverMap.url) {
@@ -240,6 +240,10 @@ function mapInfo() {
         }
         else if (canada === selMap) {
             url = prefix + 'northamerica/canada/' + name + '/' + name + '.jpg';
+        }
+        else if (china === selMap) {
+            name = hoverMap.name.toLowerCase().replace(/\s+/g, '_');
+            url = "https://www.hiddenchina.net/img/maps/" + name + ".jpg";
         }
 
         if (url) {
@@ -320,7 +324,11 @@ function loadImage() {
                 if (sameColor(pixelColor, mapColor)) {
                     changeColor(canvas, context, pixelColor, hoverColor);
                     hoverMap = map;
-                    const html = map.name + '<br>' + map.info + "<br>&#x2606; " + map.capital;
+                    let html = map.name + '<br>';
+                    if (map.type) {
+                        html += map.type + "<br>";
+                    }
+                    html += map.info + "<br>&#x2606; " + map.capital;
                     $info.html(html);
                     $info.show();
                     break;

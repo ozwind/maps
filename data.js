@@ -266,4 +266,41 @@ const canada = {name:'Canada', png:'canada', list:[
     {name:"Yukon", capital:"Whitehorse", info:"Larger Than Life", color:13}
 ]};
 
-const maps = [africa, asia, canada, europe, latin, usa];
+const china = {name:'China', png:'china', list:[
+  {name:"Anhui", type:"Province", capital:"Hefei", info:"Land of Tea and Rivers", color:1},
+  {name:"Beijing", type:"Municipality", capital:"Beijing", info:"The Capital of China", color:2},
+  {name:"Chongqing", type:"Municipality", capital:"Chongqing", info:"Mountain City", color:3},
+  {name:"Fujian", type:"Province", capital:"Fuzhou", info:"The Land of Banyans", color:4},
+  {name:"Gansu", type:"Province", capital:"Lanzhou", info:"Corridor of the Silk Road", color:5},
+  {name:"Guangdong", type:"Province", capital:"Guangzhou", info:"The Pearl of the South", color:6},
+  {name:"Guangxi", type:"Autonomous Region", capital:"Nanning", info:"Land of Ethnic Harmony", color:7},
+  {name:"Guizhou", type:"Province", capital:"Guiyang", info:"Village of Clouds", color:8},
+  {name:"Hainan", type:"Province", capital:"Haikou", info:"Hawaii of China", color:9},
+  {name:"Hebei", type:"Province", capital:"Shijiazhuang", info:"Home of the Great Wall", color:10},
+  {name:"Heilongjiang", type:"Province", capital:"Harbin", info:"Ice City", color:11},
+  {name:"Henan", type:"Province", capital:"Zhengzhou", info:"The Cradle of Civilization", color:12},
+  {name:"Hong Kong", type:"Special Administrative Region", capital:"Hong Kong", info:"Asia's World City", color:13},
+  {name:"Hubei", type:"Province", capital:"Wuhan", info:"The Land of Lakes", color:14},
+  {name:"Hunan", type:"Province", capital:"Changsha", info:"Province of the Red Soil", color:15},
+  {name:"Inner Mongolia", type:"Autonomous Region", capital:"Hohhot", info:"Grasslands of Freedom", color:16},
+  {name:"Jiangsu", type:"Province", capital:"Nanjing", info:"Land of Fish and Rice", color:17},
+  {name:"Jiangxi", type:"Province", capital:"Nanchang", info:"Kingdom of Porcelain", color:18},
+  {name:"Jilin", type:"Province", capital:"Changchun", info:"Home of Snow and Forests", color:19},
+  {name:"Liaoning", type:"Province", capital:"Shenyang", info:"Industrial Heartland", color:20},
+  {name:"Macau", type:"Special Administrative Region", capital:"Macau", info:"City of Dreams", color:21},
+  {name:"Ningxia", type:"Autonomous Region", capital:"Yinchuan", info:"Oasis of the Yellow River", color:22},
+  {name:"Qinghai", type:"Province", capital:"Xining", info:"Land of the Blue Lake", color:23},
+  {name:"Shaanxi", type:"Province", capital:"Xi'an", info:"The Ancient Heartland", color:24},
+  {name:"Shandong", type:"Province", capital:"Jinan", info:"Land of Confucius", color:25},
+  {name:"Shanghai", type:"Municipality", capital:"Shanghai", info:"The Pearl of the Orient", color:26},
+  {name:"Shanxi", type:"Province", capital:"Taiyuan", info:"Coal Capital of China", color:27},
+  {name:"Sichuan", type:"Province", capital:"Chengdu", info:"Home of the Giant Panda", color:28},
+  {name:"Taiwan", type:"Province", capital:"Taipei", info:"The Heart of Asia", color:29},
+  {name:"Tianjin", type:"Municipality", capital:"Tianjin", info:"The Port City", color:30},
+  {name:"Tibet", type:"Autonomous Region", capital:"Lhasa", info:"Roof of the World", color:31},
+  {name:"Xinjiang", type:"Autonomous Region", capital:"Urumqi", info:"Land of Silk Road", color:32},
+  {name:"Yunnan", type:"Province", capital:"Kunming", info:"Kingdom of Biodiversity", color:33},
+  {name:"Zhejiang", type:"Province", capital:"Hangzhou", info:"Land of Silk and Tea", color:34}
+]};
+
+const maps = [africa, asia, canada, china, europe, latin, usa];
