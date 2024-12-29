@@ -279,7 +279,7 @@ const china = {name:'China', png:'china', list:[
   {name:"Hebei", type:"Province", capital:"Shijiazhuang", info:"Home of the Great Wall", color:10},
   {name:"Heilongjiang", type:"Province", capital:"Harbin", info:"Ice City", color:11},
   {name:"Henan", type:"Province", capital:"Zhengzhou", info:"The Cradle of Civilization", color:12},
-  {name:"Hong Kong", type:"Special Administrative Region", capital:"Hong Kong", info:"Asia's World City", color:13},
+  {name:"Hong Kong", type:"Special Administrative Region", capital:"Hong Kong", info:"Asia's World City", color:13, url:"https://www.hiddenchina.net/img/maps/hongkong.jpg"},
   {name:"Hubei", type:"Province", capital:"Wuhan", info:"The Land of Lakes", color:14},
   {name:"Hunan", type:"Province", capital:"Changsha", info:"Province of the Red Soil", color:15},
   {name:"Inner Mongolia", type:"Autonomous Region", capital:"Hohhot", info:"Grasslands of Freedom", color:16},
