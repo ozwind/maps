@@ -241,6 +241,9 @@ function mapInfo() {
         else if (canada === selMap) {
             url = prefix + 'northamerica/canada/' + name + '/' + name + '.jpg';
         }
+        else if (caribbean === selMap) {
+            url = prefix + 'centralamerica/' + name + '/' + name + '.jpg';
+        }
         else if (china === selMap) {
             name = hoverMap.name.toLowerCase().replace(/\s+/g, '_');
             url = "https://www.hiddenchina.net/img/maps/" + name + ".jpg";

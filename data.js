@@ -303,4 +303,31 @@ const china = {name:'China', png:'china', list:[
   {name:"Zhejiang", type:"Province", capital:"Hangzhou", info:"Land of Silk and Tea", color:34}
 ]};
 
-const maps = [africa, asia, canada, china, europe, latin, usa];
+const caribbean = {name:'Caribbean', png:'caribbean', list:[
+  {name:"Antigua and Barbuda", capital:"Saint John's", info:"Land of 365 Beaches", color:1,
+  url:"https://www.freeworldmaps.net/centralamerica/antigua/antiguabarbuda-map.jpg"},
+  {name:"Bahamas", capital:"Nassau", info:"Archipelago of Paradise", color:2},
+  {name:"Barbados", capital:"Bridgetown", info:"The Gem of the Caribbean", color:3},
+  {name:"Cayman Islands", capital:"George Town", info:"Tax Haven of the Caribbean", color:4,
+  url:"https://www.freeworldmaps.net/centralamerica/cayman/cayman-islands.jpg"},
+  {name:"Cuba", capital:"Havana", info:"Pearl of the Antilles", color:5},
+  {name:"Dominica", capital:"Roseau", info:"Nature Island of the Caribbean", color:6},
+  {name:"Dominican Republic", capital:"Santo Domingo", info:"The Land of Firsts", color:7},
+  {name:"Grenada", capital:"St. George's", info:"The Spice Isle", color:8},
+  {name:"Haiti", capital:"Port-au-Prince", info:"Land of Mountains", color:9},
+  {name:"Jamaica", capital:"Kingston", info:"The Island of Reggae", color:10,
+  url:"https://www.freeworldmaps.net/centralamerica/jamaica/jamaica-map.jpg"},
+  {name:"Puerto Rico", capital:"San Juan", info:"Island of Enchantment", color:11},
+  {name:"Saint Kitts and Nevis", capital:"Basseterre", info:"Two Islands, One Paradise", color:12,
+  url:"https://www.freeworldmaps.net/centralamerica/stkitts/stkitts.jpg"},
+  {name:"Saint Lucia", capital:"Castries", info:"Helen of the West Indies", color:13,
+  url:"https://www.freeworldmaps.net/centralamerica/stlucia/stlucia.jpg"},
+  {name:"Saint Vincent and the Grenadines", capital:"Kingstown", info:"Jewels of the Antilles", color:14,
+  url:"https://www.freeworldmaps.net/centralamerica/stvincent/stvincent.jpg"},
+  {name:"Trinidad and Tobago", capital:"Port of Spain", info:"Land of Steelpan and Calypso", color:15,
+  url:"https://www.freeworldmaps.net/centralamerica/trinidad/trinidadtobago.jpg"},
+  {name:"Guadeloupe", capital:"Basse-Terre", info:"Butterfly Island", color:16},
+  {name:"Martinique", capital:"Fort-de-France", info:"Island of Flowers", color:17}
+]};
+
+const maps = [africa, asia, canada, caribbean, china, europe, latin, usa];
