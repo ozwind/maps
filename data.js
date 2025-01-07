@@ -165,7 +165,8 @@ const asia = {name:'Asia', png:'asia', list:[
 const latin = {name:'Latin America', png:'latin', list:[
     {name:"Mexico", capital:"Mexico City", info:"The Land of the Aztecs", color:1,
           url:"https://www.freeworldmaps.net/northamerica/mexico/mexico-map.jpg"},
-    {name:"Belize", capital:"Belmopan", info:"The Jewel of the Caribbean", ca:"true", color:2},
+    {name:"Belize", capital:"Belmopan", info:"The Jewel of the Caribbean", ca:"true", color:2,
+          url:"https://www.freeworldmaps.net/centralamerica/belize/belize-map-physical.jpg"},
     {name:"Costa Rica", capital:"San Jose", info:"The Land of Pura Vida", ca:"true", color:3},
     {name:"El Salvador", capital:"San Salvador", info:"The Land of Volcanoes", ca:"true", color:4,
           url:"https://www.freeworldmaps.net/centralamerica/salvador/salvador-map.jpg"},
